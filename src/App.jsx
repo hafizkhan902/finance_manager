@@ -3,19 +3,19 @@ import LandingPage from './components/LandingPage'
 import './App.css'
 
 function App() {
-  const [selectedFinanceType, setSelectedFinanceType] = useState(null)
+  const [user, setUser] = useState(null)
 
-  const handleFinanceTypeSelection = (type) => {
-    setSelectedFinanceType(type)
-    console.log(`Selected finance type: ${type}`)
-    // TODO: Navigate to the appropriate finance management interface
+  const handleGetStarted = (userData) => {
+    if (userData) {
+      setUser(userData)
+      // Here you would typically redirect to dashboard
+      console.log('User logged in:', userData)
+    }
   }
 
-  // For now, always show the landing page
-  // Later we'll add routing to show different interfaces based on selection
   return (
     <div className="App">
-      <LandingPage onSelectFinanceType={handleFinanceTypeSelection} />
+      <LandingPage onGetStarted={handleGetStarted} />
     </div>
   )
 }

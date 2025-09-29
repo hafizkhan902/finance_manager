@@ -63,7 +63,7 @@ const SupportSection = () => {
 
           <div className="support-cta">
             <h3>Ready to Get Started?</h3>
-            <p>Join thousands of users who trust FinancePro for their financial management needs.</p>
+            <p>Join thousands of users who trust Healthy Wallet for their financial management needs.</p>
             <div className="cta-buttons">
               <button className="cta-button primary">Start Free Trial</button>
               <button className="cta-button secondary">Contact Sales</button>

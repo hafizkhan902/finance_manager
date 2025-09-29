@@ -1,11 +1,16 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import './LandingPage.css'
 import FeaturesSection from './FeaturesSection'
 import PricingSection from './PricingSection'
 import SupportSection from './SupportSection'
 import Footer from './Footer'
+import Modal from './Modal'
+import LoginPage from './LoginPage'
+import SignupPage from './SignupPage'
 
-const LandingPage = ({ onSelectFinanceType }) => {
+const LandingPage = ({ onGetStarted }) => {
+  const [showLoginModal, setShowLoginModal] = useState(false)
+  const [showSignupModal, setShowSignupModal] = useState(false)
   const featuresRef = useRef(null)
   const pricingRef = useRef(null)
   const supportRef = useRef(null)
@@ -23,6 +28,26 @@ const LandingPage = ({ onSelectFinanceType }) => {
     }
   }
 
+  const handleLogin = (userData) => {
+    setShowLoginModal(false)
+    onGetStarted(userData)
+  }
+
+  const handleSignup = (userData) => {
+    setShowSignupModal(false)
+    onGetStarted(userData)
+  }
+
+  const handleSwitchToSignup = () => {
+    setShowLoginModal(false)
+    setShowSignupModal(true)
+  }
+
+  const handleSwitchToLogin = () => {
+    setShowSignupModal(false)
+    setShowLoginModal(true)
+  }
+
   return (
     <div className="landing-page">
       {/* Navigation Bar */}
@@ -30,7 +55,7 @@ const LandingPage = ({ onSelectFinanceType }) => {
         <div className="nav-container">
           <div className="nav-logo">
             <span className="logo-icon">💰</span>
-            <span className="logo-text">FinancePro</span>
+            <span className="logo-text">Healthy Wallet</span>
           </div>
           <div className="nav-links">
             <button 
@@ -86,7 +111,7 @@ const LandingPage = ({ onSelectFinanceType }) => {
 
 
             {/* CTA Button */}
-            <button className="main-cta">
+            <button className="main-cta" onClick={() => setShowLoginModal(true)}>
               START FREE TRIAL
               <span className="cta-arrow">→</span>
             </button>
@@ -102,7 +127,6 @@ const LandingPage = ({ onSelectFinanceType }) => {
                   alt="Finance Professional" 
                   className="person-avatar"
                 />
-                <div className="person-card">💳</div>
               </div>
               <div className="geometric-shapes">
                 <div className="shape shape-1"></div>
@@ -134,6 +158,29 @@ const LandingPage = ({ onSelectFinanceType }) => {
       <div ref={aboutRef}>
         <Footer />
       </div>
+
+      {/* Authentication Modals */}
+      <Modal 
+        isOpen={showLoginModal} 
+        onClose={() => setShowLoginModal(false)}
+        title="Sign In"
+      >
+        <LoginPage 
+          onLogin={handleLogin}
+          onSwitchToSignup={handleSwitchToSignup}
+        />
+      </Modal>
+
+      <Modal 
+        isOpen={showSignupModal} 
+        onClose={() => setShowSignupModal(false)}
+        title="Create Account"
+      >
+        <SignupPage 
+          onSignup={handleSignup}
+          onSwitchToLogin={handleSwitchToLogin}
+        />
+      </Modal>
     </div>
   )
 }

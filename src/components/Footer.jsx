@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="footer-section">
             <div className="footer-logo">
               <span className="logo-icon">💰</span>
-              <span className="logo-text">FinancePro</span>
+              <span className="logo-text">Healthy Wallet</span>
             </div>
             <p className="footer-description">
               Empowering individuals and businesses to take control of their financial future 
@@ -84,7 +84,7 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="footer-bottom-content">
             <p className="copyright">
-              © 2024 FinancePro. All rights reserved.
+              © 2024 Healthy Wallet. All rights reserved.
             </p>
             <div className="footer-bottom-links">
               <a href="#privacy">Privacy</a>

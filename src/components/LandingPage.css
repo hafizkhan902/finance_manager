@@ -232,7 +232,7 @@
   align-items: center;
   padding: 2rem 0;
   position: absolute;
-  right: -50px;
+  right: -30px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
@@ -243,7 +243,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 500px;
+  min-height: 450px;
   margin-bottom: 1rem;
 }
 
@@ -253,25 +253,16 @@
 }
 
 .person-avatar {
-  width: 400px;
-  height: 400px;
+  width: 380px;
+  height: 380px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  border: 8px solid white;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+  border: 6px solid white;
+  position: relative;
+  z-index: 2;
 }
 
-.person-card {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  font-size: 1.5rem;
-  background: #6B46C1;
-  color: white;
-  border-radius: 8px;
-  padding: 0.5rem;
-  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.3);
-}
 
 .geometric-shapes {
   position: absolute;
@@ -344,12 +335,12 @@
   }
   
   .right-visual {
-    right: -40px;
+    right: -20px;
   }
   
   .person-avatar {
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
   }
 }
 
@@ -373,7 +364,7 @@
   }
   
   .right-visual {
-    right: -60px;
+    right: -40px;
     padding: 3rem 0;
   }
 }
